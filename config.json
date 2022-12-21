@@ -1,0 +1,15 @@
+{
+    "server": {
+        "port": 3001,
+        "host": "127.0.0.1"
+    },
+
+    "mongodb": {
+        "port": 27017,
+        "host": "127.0.0.1",
+        "db_name": "task_manager",
+        "pool_size": 15
+    },
+
+    "secret": "dsnjcsdlieklONIUUildli0w88"
+}
