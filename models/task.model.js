@@ -9,7 +9,7 @@ const TaskSchema = new mongoose.Schema(
     title: String,
     description: String,
     completed: Boolean,
-    attachments: [String]
+    attachments: [ObjectId]
   },
   { timestamps: true }
 )

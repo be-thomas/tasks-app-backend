@@ -1,22 +1,27 @@
-
+const db = require("../../models");
 
 function attachmentsCreate(req, res) {
-    console.log(req.files)
+    let file = req.files[0]
 
-    /*
-    const task = new Task({
-        user_id: req.user_id,
-        title, description, completed, attachments
+    const {
+        fieldname, originalname, encoding, mimetype,
+        destination, filename, path, size
+    } = file;
+
+    const Attachment = db.attachment;
+
+    const attachment = new Attachment({
+        fieldname, originalname, encoding, mimetype,
+        destination, filename, path, size
     })
 
-    task.save((err, task) => {
-        if(err) {
-            return res.status(500).send({ success: false, error: "DB_ERROR", message: "Error creating Task!" })
-        }
-
-        return res.send({ success: true, task_id: task._id })
+    attachment.save()
+    .then(attachment => {
+        res.send({ success: true, attachment })
+    }).catch(err => {
+        console.log("err: ", err)
+        res.status(500).send({ success: false, error: "SERVER_ERROR", message: "Error uploading file to server" })
     })
-    */
 }
 
 

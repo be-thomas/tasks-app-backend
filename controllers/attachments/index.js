@@ -6,7 +6,7 @@ const attachmentsRouter = express.Router();
 const upload = multer({ dest: "uploads/" });
 
 attachmentsRouter.use(verifyToken)
-attachmentsRouter.post('/', upload.single('file'), require('./attachmentsCreate'))
+attachmentsRouter.post('/', upload.array('file'), require('./attachmentsCreate'))
 
 
 module.exports = attachmentsRouter;
