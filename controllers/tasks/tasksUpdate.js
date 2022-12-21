@@ -24,7 +24,7 @@ function validateTaskUpdationInputs(res, data) {
     }
 
     if(data.completed) {
-        if(!is_boolean(completed)) {
+        if(!is_boolean(data.completed)) {
             res.status(500).send({ success: false, error: "INVALID_DATA", message: "Completed should be a boolean" })
             return null;
         }
@@ -32,7 +32,7 @@ function validateTaskUpdationInputs(res, data) {
     }
 
     if(data.attachments) {
-        if(!is_array(attachments)) {
+        if(!is_array(data.attachments)) {
             res.status(500).send({ success: false, error: "INVALID_DATA", message: "Attachments should be an array" })
             return null;
         }
