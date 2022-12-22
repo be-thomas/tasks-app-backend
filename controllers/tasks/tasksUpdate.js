@@ -23,7 +23,7 @@ function validateTaskUpdationInputs(res, data) {
         updations.description = data.description;
     }
 
-    if(data.completed) {
+    if(data.completed !== undefined) {
         if(!is_boolean(data.completed)) {
             res.status(500).send({ success: false, error: "INVALID_DATA", message: "Completed should be a boolean" })
             return null;
